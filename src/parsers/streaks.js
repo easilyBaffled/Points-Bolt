@@ -1,4 +1,4 @@
-import produce, { current } from "immer";
+import { produce } from "immer";
 
 const treaksMatcher = /## Streaks\n+([\s\S]+?)---/;
 const streakMatcher =

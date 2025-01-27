@@ -1,4 +1,4 @@
-import produce, { setAutoFreeze } from "immer";
+import { produce, setAutoFreeze } from "immer";
 import moment from "moment";
 import { sortTasks, getDistance } from "./sortTasks";
 import { markdown as tasks } from './points.md';

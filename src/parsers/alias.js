@@ -1,5 +1,3 @@
-import produce, { current } from "immer";
-
 const aliasSectionMatcher = /(?<=## Aliases\n\n)(.*?)(?=\n\n)/s;
 const aliasMatcher =
   /#(?<alias>\w+) (?<firstDate>\d+\/\d+)(-?(?<lastDate>\d+\/\d+))?/s;

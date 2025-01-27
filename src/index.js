@@ -1,11 +1,6 @@
-import * as d3 from "d3";
-import { tasks } from "./tasks";
-import "./styles.css";
-import { getTagDictHighestValue } from "./taggingDict";
-import { linearScale } from "./linearScale";
-import { nodes } from "./taggingNodes";
-import "./quads/index";
-import "./core";
+// import "./styles.css";
+import "./quads/index.js";
+import "./core.js";
 
 import {
   createNodeTagTree,

@@ -1,4 +1,4 @@
-import produce from "immer";
+import { produce } from "immer";
 
 const tabMatcher = /Tabs: (?<old>\d+)\((?<target>\d+)\) ->\s*(?<newTabs>\d+)?/;
 
