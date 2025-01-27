@@ -1,19 +1,14 @@
-import produce, { current, setAutoFreeze } from "immer";
+import produce, { setAutoFreeze } from "immer";
 import moment from "moment";
-import { sortTasks, convertMiliseconds, getDistance } from "./sortTasks";
-// import { tasks } from "./tasks";
-import tasks from "./points.md";
-import weeklyTasks from "./parsers/weeklyTasks.md";
+import { sortTasks, getDistance } from "./sortTasks";
+import { markdown as tasks } from './points.md';
+import { markdown as weeklyTasks } from "./parsers/weeklyTasks.md";
 import { parseAlias, getAlias } from "./parsers/alias";
-import { deriveValueFromTimingTag } from "./parseTaskString";
 import {
   getPointValue,
-  getCompletionStreak,
   getTaskList,
   formatTaskList,
   collectSplitOutDoneTasks,
-  parseCompletionGoal,
-  constructGoal,
   template,
   parseStreaks,
   getStreaks,
@@ -21,8 +16,7 @@ import {
   applyTabs,
   parseTabs,
   getTimeboxedTasks,
-  getCompletedTimeboxedTasks,
-  getTimeboxPizza
+  getCompletedTimeboxedTasks
 } from "./parsers";
 import {
   displayDayBydayLimits,
@@ -31,52 +25,9 @@ import {
   getDayName,
   addDayByDayPoints,
   TODAY_HOUR_LIMIT,
-  extraDates,
-  dayToDate,
-  listDates
+  dayToDate
 } from "./dayByDayLimits";
-import {
-  createNodeTagTree,
-  prettyPrintCatTree,
-  createTagTree,
-  createScoreTable,
-  createTree
-} from "./createTagTree";
-
-const values = [
-  "today",
-  "on-tuesday",
-  "on-wednesday",
-  "on-thursday",
-  "on-friday",
-  "on-saturday",
-  "on-sunday",
-  "on-monday",
-  "r",
-  "pr",
-  "none"
-];
-
-const getValue = (str) => {
-  const date = (str.match(/^#(?<date>[^ ]+ )/).groups.date || "").trim();
-
-  const index = values.indexOf(date);
-  return index === -1 ? values.length : index;
-};
-
-const sort = (str) =>
-  copy(
-    str
-      .split("\n")
-      .filter(Boolean)
-      .map((s) => s.trim())
-      .sort((a, b) => {
-        return getValue(a) - getValue(b);
-      })
-      .join("\n")
-  );
-
-window.sort = sort;
+import { convertMiliseconds } from './parseTaskString.js';
 
 setAutoFreeze(false);
 console.tap = (v, ...rest) => (console.log(v, ...rest), v);
