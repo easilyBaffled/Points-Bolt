@@ -1,21 +1,22 @@
-import config from "eslint-config-standard";
-import unusedImportsPlugin from "eslint-plugin-unused-imports";
-import sortKeysFixPlugin from "eslint-plugin-sort-keys-fix";
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import unusedImports from "eslint-plugin-unused-imports";
+import sortKeysFix from "eslint-plugin-sort-keys-fix";
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-	// ...[].concat(config),
 	{
+		files: ["**/*.js", "**/*.jsx"], // Specify file types to apply this configuration
+		languageOptions: {
+			globals: globals.browser,
+		},
 		plugins: {
-			"unused-imports": unusedImportsPlugin,
-			"sort-keys-fix": sortKeysFixPlugin,
+			"unused-imports": unusedImports,
+			"sort-keys-fix": sortKeysFix,
 		},
 		rules: {
-			"unused-imports/no-unused-imports": "error",
-			"unused-imports/no-unused-vars": [
-				"warn",
-				{ vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
-			],
+			"unused-imports/no-unused-imports": "error"
 		},
 	},
+	pluginJs.configs.recommended,
 ];

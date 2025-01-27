@@ -223,35 +223,6 @@ function getDateTag(taskString) {
 
 const todayTag = `#on-${today.getMonth() + 1}/${today.getDate()}`;
 
-// const { rest, ...dates } = taskStrings.reduce(
-//   (acc, taskString) => {
-//     let timingTag = taskString.split(" ")[0];
-//     if (timingTag.startsWith("#none-")) {
-//       acc.none.push(taskString);
-//     } else if (timingTag === todayTag) {
-//       acc.rest.push(taskString.replace(timingTag, "#today"));
-//     } else if (timingTag.startsWith("#on-")) {
-//       const dateTag = getDateTag(timingTag);
-
-//       if (!(dateTag in acc)) {
-//         acc[dateTag] = [];
-//       }
-//       acc[dateTag].push(taskString);
-//     } else {
-//       acc.rest.push(taskString);
-//     }
-//     return acc;
-//   },
-//   {
-//     ...listDates(today.getHours() < 12 ? today : tomorrow, 20).reduce(
-//       (acc, date) => ({ ...acc, ["#on-" + date]: [] }),
-//       {}
-//     ),
-//     rest: [],
-//     none: []
-//   }
-// );
-
 // console.log({
 //   rest,
 //   dates
