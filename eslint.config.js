@@ -2,9 +2,9 @@ import config from "eslint-config-standard";
 import unusedImportsPlugin from "eslint-plugin-unused-imports";
 import sortKeysFixPlugin from "eslint-plugin-sort-keys-fix";
 
-/** @type {import('eslint').Linter.Config[]} */
+/** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-	...[].concat(config),
+	// ...[].concat(config),
 	{
 		plugins: {
 			"unused-imports": unusedImportsPlugin,
